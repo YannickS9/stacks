@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <title>Stacks — Privacy Policy</title>
+
+  <meta
+    name="description"
+    content="Privacy Policy for Stacks, a comic reader for iOS."
+  />
+
+  <style>
+    :root {
+      color-scheme: dark;
+
+      --background: #0b0b0f;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.09);
+
+      --text: #f5f5f7;
+      --secondary: #a1a1aa;
+
+      --accent: #F8262D;
+      --accent-hover: #ff4147;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(248, 38, 45, 0.18),
+          transparent 35%
+        ),
+        var(--background);
+
+      color: var(--text);
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page {
+      width: min(100% - 40px, 760px);
+      margin: 0 auto;
+      padding: 96px 0 48px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: clamp(38px, 7vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .effective-date {
+      margin: 16px 0 0;
+
+      color: var(--secondary);
+
+      font-size: 15px;
+    }
+
+    .policy {
+      padding: 32px;
+
+      border-radius: 24px;
+
+      background: var(--card);
+      border: 1px solid var(--card-border);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    }
+
+    .policy p {
+      margin: 0 0 24px;
+
+      color: var(--secondary);
+
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .policy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy strong {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .contact {
+      margin-top: 28px;
+      padding-top: 28px;
+
+      border-top: 1px solid var(--card-border);
+    }
+
+    .contact-label {
+      margin-bottom: 12px;
+
+      color: var(--text);
+
+      font-size: 17px;
+      font-weight: 650;
+    }
+
+    .email-link {
+      display: inline-block;
+
+      color: var(--accent);
+
+      text-decoration: none;
+      font-weight: 650;
+
+      transition: color 0.18s ease;
+    }
+
+    .email-link:hover {
+      color: var(--accent-hover);
+    }
+
+    footer {
+      margin-top: 48px;
+
+      text-align: center;
+
+      color: #686873;
+
+      font-size: 13px;
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 28px, 760px);
+        padding-top: 64px;
+      }
+
+      .policy {
+        padding: 22px;
+        border-radius: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <h1>Privacy Policy for Stacks</h1>
+      <p class="effective-date">
+        Effective date: [DATE]
+      </p>
+    </header>
+
+    <section class="policy">
+      <p>
+        <strong>Stacks does not collect, transmit, sell, or share personal data.</strong>
+      </p>
+
+      <p>
+        Comics, reading progress, reader preferences, custom artwork, and
+        supporter badges are stored locally on the user’s device. Stacks does
+        not upload comic files to servers operated by the developer.
+      </p>
+
+      <p>
+        Optional in-app purchases are processed by Apple through StoreKit.
+        The developer does not receive payment card information.
+      </p>
+
+      <p>
+        If a user contacts the developer by email, the information they choose
+        to provide will be used only to respond to that message.
+      </p>
+
+      <p>
+        Stacks contains no advertising or third-party analytics.
+      </p>
+
+      <p>
+        Users can remove individual comics from within Stacks. All locally
+        stored app data can be removed by deleting the app.
+      </p>
+
+      <div class="contact">
+        <div class="contact-label">Questions may be sent to:</div>
+
+        <a
+          class="email-link"
+          href="mailto:yannicksdapps@gmail.com?subject=Stacks%20Privacy%20Policy"
+        >
+          yannicksdapps@gmail.com
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Yannick Schlagenhauf. All rights reserved.
+    </footer>
+  </main>
+</body>
+</html>
