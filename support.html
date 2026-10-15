@@ -1,17 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stacks Support</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <title>Stacks — Support</title>
+
+  <meta
+    name="description"
+    content="Support for Stacks, a comic reader for iOS."
+  />
+
+  <style>
+    :root {
+      color-scheme: dark;
+
+      --background: #0b0b0f;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.09);
+
+      --text: #f5f5f7;
+      --secondary: #a1a1aa;
+
+      --accent: #F8262D;
+      --accent-hover: #ff4147;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(248, 38, 45, 0.20),
+          transparent 35%
+        ),
+        var(--background);
+
+      color: var(--text);
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page {
+      width: min(100% - 40px, 760px);
+      margin: 0 auto;
+      padding: 80px 0 48px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .app-icon {
+      width: 88px;
+      height: 88px;
+
+      margin: 0 auto 24px;
+
+      border-radius: 22px;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ff5a60,
+          #F8262D 55%,
+          #b80f15
+        );
+
+      box-shadow:
+        0 22px 60px rgba(248, 38, 45, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -4px;
+
+      user-select: none;
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: clamp(40px, 8vw, 64px);
+      line-height: 1;
+
+      letter-spacing: -0.05em;
+    }
+
+    .subtitle {
+      max-width: 520px;
+
+      margin: 18px auto 0;
+
+      color: var(--secondary);
+
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      padding: 26px;
+
+      border-radius: 22px;
+
+      background: var(--card);
+      border: 1px solid var(--card-border);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+
+      color: var(--secondary);
+
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .support-card {
+      margin-top: 16px;
+      padding: 32px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(248, 38, 45, 0.16),
+          rgba(255, 255, 255, 0.045)
+        );
+
+      border-color: rgba(248, 38, 45, 0.18);
+    }
+
+    .support-card p {
+      max-width: 480px;
+      margin: 0 auto 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      min-height: 52px;
+      padding: 0 24px;
+
+      border-radius: 15px;
+
+      background: var(--accent);
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 16px;
+      font-weight: 650;
+
+      box-shadow:
+        0 10px 30px rgba(248, 38, 45, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+
+      transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .button:hover {
+      background: var(--accent-hover);
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 14px 36px rgba(248, 38, 45, 0.40),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .button:active {
+      transform: scale(0.98);
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(248, 38, 45, 0.35);
+      outline-offset: 4px;
+    }
+
+    .button svg {
+      width: 19px;
+      height: 19px;
+      fill: currentColor;
+    }
+
+    footer {
+      margin-top: 48px;
+
+      text-align: center;
+
+      color: #686873;
+
+      font-size: 13px;
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 28px, 760px);
+        padding-top: 56px;
+      }
+
+      header {
+        margin-bottom: 40px;
+      }
+
+      .card,
+      .support-card {
+        padding: 22px;
+        border-radius: 19px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Stacks Support</h1>
-  <p>This is the support page.</p>
-  <p>
-    <a href="mailto:yannicksdapps@gmail.com">
-      <button type="button">Contact Developer</button>
-    </a>
-  </p>
+  <main class="page">
+    <header>
+      <div class="app-icon" aria-hidden="true">
+        S
+      </div>
+
+      <h1>Stacks</h1>
+
+      <p class="subtitle">
+        Your comics, beautifully organized and ready to read.
+        Welcome to the official support page for Stacks on iOS.
+      </p>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h2>Reading your comics</h2>
+
+        <p>
+          Stacks is designed to make reading your comic collection simple,
+          fast, and enjoyable on iPhone and iPad.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Having trouble?</h2>
+
+        <p>
+          If something isn't working as expected, try closing and reopening
+          Stacks and make sure you're using the latest version of the app and
+          iOS.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Feedback &amp; feature requests</h2>
+
+        <p>
+          Have an idea that could make Stacks better? Feedback, suggestions,
+          and feature requests are always welcome.
+        </p>
+      </div>
+
+      <div class="card support-card">
+        <h2>Need more help?</h2>
+
+        <p>
+          Get in touch and include as much information as possible about your
+          question or issue.
+        </p>
+
+        <a
+          class="button"
+          href="mailto:yannicksdapps@gmail.com?subject=Stacks%20Support"
+          aria-label="Contact Stacks support by email"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"
+            />
+          </svg>
+
+          Contact Support
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Stacks. All rights reserved.
+    </footer>
+  </main>
 </body>
 </html>
